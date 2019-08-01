@@ -71,7 +71,7 @@ Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_name" -Val
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_path" -Value $windowsImagePath
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_type" -Value "MAAS"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "install_maas_hooks" -Value "True"
-Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 4
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 2
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (4GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disk_size" -Value (30GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "external_switch" -Value $switchName
