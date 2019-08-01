@@ -44,7 +44,7 @@ $virtIOISOPath = "C:\images\virtio.iso"
 $virtIODownloadLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.141-1/virtio-win-0.1.141.iso"
 
 # Download the VirtIO drivers ISO from Fedora, If the ISO does not exists.
-if(!(Test-Path $virtIOISOPath) {
+if(!(Test-Path $virtIOISOPath)) {
     (New-Object System.Net.WebClient).DownloadFile($virtIODownloadLink, $virtIOISOPath)
 }
 
