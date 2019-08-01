@@ -59,7 +59,7 @@ $image = (Get-WimFileImagesInfo -WimFilePath $wimFilePath)[1]
 
 # Make sure the switch exists and it allows Internet access if updates
 # are to be installed
-$switchName = 'Red Hat VirtIO Ethernet Adapter - Virtual Switch'
+$switchName = 'Intel(R) PRO/1000 MT Network Connection - Virtual Switch'
 
 # The path were you want to create the config fille
 $configFilePath = Join-Path $scriptPath "Run\config.ini"
