@@ -1368,8 +1368,8 @@ function New-WindowsCloudImage {
         Copy-CustomResources -ResourcesDir $resourcesDir -CustomResources $windowsImageConfig.custom_resources_path `
                              -CustomScripts $windowsImageConfig.custom_scripts_path
         Copy-Item $ConfigFilePath "$resourcesDir\config.ini"
-        Set-WindowsWallpaper -WinDrive $winImagePath -WallpaperPath $windowsImageConfig.wallpaper_path `
-            -WallpaperSolidColor $windowsImageConfig.wallpaper_solid_color
+        #Set-WindowsWallpaper -WinDrive $winImagePath -WallpaperPath $windowsImageConfig.wallpaper_path `
+        #    -WallpaperSolidColor $windowsImageConfig.wallpaper_solid_color
         if ($windowsImageConfig.zero_unused_volume_sectors) {
             Download-ZapFree $resourcesDir ([string]$image.ImageArchitecture)
         }
@@ -1512,8 +1512,8 @@ function New-WindowsFromGoldenImage {
         Copy-CustomResources -ResourcesDir $resourcesDir -CustomResources $windowsImageConfig.custom_resources_path `
                              -CustomScripts $windowsImageConfig.custom_scripts_path
         Copy-Item $ConfigFilePath "$resourcesDir\config.ini"
-        Set-WindowsWallpaper -WinDrive $driveLetterGold -WallpaperPath $windowsImageConfig.wallpaper_path `
-            -WallpaperSolidColor $windowsImageConfig.wallpaper_solid_color
+        #Set-WindowsWallpaper -WinDrive $driveLetterGold -WallpaperPath $windowsImageConfig.wallpaper_path `
+        #    -WallpaperSolidColor $windowsImageConfig.wallpaper_solid_color
         if ($windowsImageConfig.zero_unused_volume_sectors) {
             Download-ZapFree $resourcesDir $imageInfo.imageArchitecture
         }
