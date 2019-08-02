@@ -1,1 +1,1 @@
-New-Item -Path hello.txt
+$text = 'New-Item -Path C:\hello.txt' | Out-File $text -FilePath 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\create-hello-file.ps1'
