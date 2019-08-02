@@ -281,23 +281,24 @@ function Run-CustomScript {
     if (Test-Path $fullScriptFilePath) {
         Write-Host "Executing script $fullScriptFilePath"
         & $fullScriptFilePath
-	if ($LastExitCode -eq 1004) {
-	    # exit this script
-	    exit 0
-	}
-	if ($LastExitCode -eq 1005) {
-	    # exit this script and reboot
-	    shutdown -r -t 0 -f
-	    exit 0
-	}
-	if ($LastExitCode -eq 1006) {
-	    # exit this script and shutdown
-	    shutdown -s -t 0 -f
-	    exit 0
-	}
-	if ($LastExitCode -eq 1) {
-	    throw "Script $ScriptFileName executed unsuccessfuly"
-	}
+        
+        if ($LastExitCode -eq 1004) {
+            # exit this script
+            exit 0
+        }
+        if ($LastExitCode -eq 1005) {
+            # exit this script and reboot
+            shutdown -r -t 0 -f
+            exit 0
+        }
+        if ($LastExitCode -eq 1006) {
+            # exit this script and shutdown
+            shutdown -s -t 0 -f
+            exit 0
+        }
+        if ($LastExitCode -eq 1) {
+            throw "Script $ScriptFileName executed unsuccessfuly"
+        }
 
     }
 }
