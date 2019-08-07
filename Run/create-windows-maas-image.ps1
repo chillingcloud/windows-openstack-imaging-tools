@@ -60,7 +60,7 @@ $extraDriversPath = "C:\drivers\"
 $image = $null
 $images = Get-WimFileImagesInfo -WimFilePath $wimFilePath
 
-if($images[0].image_name -Match '2008 R2') {
+if($images[0].ImageName -Match '2008 R2') {
     # Windows 2008 R2 has editions listed as the following
     # Standard (GUI)
     # Standard (Core)
