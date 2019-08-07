@@ -55,7 +55,31 @@ $extraDriversPath = "C:\drivers\"
 
 # Every Windows ISO can contain multiple Windows flavors like Core, Standard, Datacenter
 # Usually, the second image version is the Standard one
-$image = (Get-WimFileImagesInfo -WimFilePath $wimFilePath)[1]
+# $image = (Get-WimFileImagesInfo -WimFilePath $wimFilePath)[1]
+
+$image = $null
+$images = Get-WimFileImagesInfo -WimFilePath $wimFilePath
+
+if($images[0].image_name -Match '2008 R2') {
+    # Windows 2008 R2 has editions listed as the following
+    # Standard (GUI)
+    # Standard (Core)
+    # Enterprise (GUI)
+    # Enterprise (Core)
+    # Datacenter (GUI)
+    # Datacenter (Core)
+    # Web (GUI)
+    # Web (Core)
+    $image = $images[2]
+}
+else {
+    # Windows Server 2016 and 2019 have editions listed as the following
+    # Standard (Core)
+    # Standard (GUI)
+    # Datacenter (Core)
+    # Datacenter (GUI)
+    $image = $images[1]
+}
 
 # Make sure the switch exists and it allows Internet access if updates
 # are to be installed
