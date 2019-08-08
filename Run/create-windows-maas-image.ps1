@@ -13,8 +13,11 @@
 #    under the License.
 
 Param(
-    [string]$wimFilePath="D:\Sources\install.wim",
-    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz"
+    # The Windows image file path that will be generated
+    [string]$wimFilePath="D:\Sources\install.wim", 
+
+    # The wim file path is the installation image on the Windows ISO
+    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz" 
 )
 
 $ErrorActionPreference = "Stop"
@@ -37,10 +40,10 @@ try {
 }
 
 # The Windows image file path that will be generated
-$windowsImagePath = "C:\images\my-windows-image.raw.tgz"
+#$windowsImagePath = "C:\images\my-windows-image.raw.tgz"
 
 # The wim file path is the installation image on the Windows ISO
-$wimFilePath = "D:\Sources\install.wim"
+#$wimFilePath = "D:\Sources\install.wim"
 
 # VirtIO ISO contains all the synthetic drivers for the KVM hypervisor
 $virtIOISOPath = "C:\images\virtio.iso"
