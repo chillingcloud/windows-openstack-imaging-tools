@@ -94,7 +94,8 @@ else {
 $switchName = 'Intel(R) PRO/1000 MT Network Connection - Virtual Switch'
 
 # The path were you want to create the config fille
-$configFilePath = Join-Path $scriptPath "Run\config.ini"
+$unixTimeStamp = Get-Date -UFormat %s -Millisecond 0
+$configFilePath = Join-Path $scriptPath "Run\Config\config-$unixTimeStamp.ini"
 New-WindowsImageConfig -ConfigFilePath $configFilePath
 
 #This is an example how to automate the image configuration file according to your needs
