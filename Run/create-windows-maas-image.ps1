@@ -12,6 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+Param(
+    [string]$wimFilePath="D:\Sources\install.wim",
+    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz"
+)
+
 $ErrorActionPreference = "Stop"
 
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Definition | Split-Path
