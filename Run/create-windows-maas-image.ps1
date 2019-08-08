@@ -89,7 +89,7 @@ else {
     $image = $images[1]
 }
 
-Write-Host "Building $($image.ImageName)"
+Write-Host "Building $($image.ImageDisplayName)"
 
 # Make sure the switch exists and it allows Internet access if updates
 # are to be installed
