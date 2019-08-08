@@ -89,6 +89,8 @@ else {
     $image = $images[1]
 }
 
+Write-Host "Building $($image.ImageName)"
+
 # Make sure the switch exists and it allows Internet access if updates
 # are to be installed
 $switchName = 'Intel(R) PRO/1000 MT Network Connection - Virtual Switch'
