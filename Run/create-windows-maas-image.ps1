@@ -17,7 +17,7 @@ Param(
     [string]$wimFilePath="D:\Sources\install.wim", 
 
     # The wim file path is the installation image on the Windows ISO
-    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz" 
+    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz" ,
 
     # Virtual Switch on Hyper-V
     # Make sure the switch exists and it allows Internet access if updates are to be installed
