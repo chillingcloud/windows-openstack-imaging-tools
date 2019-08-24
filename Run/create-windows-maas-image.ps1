@@ -18,6 +18,10 @@ Param(
 
     # The wim file path is the installation image on the Windows ISO
     [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz" 
+
+    # Virtual Switch on Hyper-V
+    # Make sure the switch exists and it allows Internet access if updates are to be installed
+    [string]$switchName = $null
 )
 
 $ErrorActionPreference = "Stop"
@@ -89,11 +93,7 @@ else {
     $image = $images[1]
 }
 
-Write-Host "Building $($image.ImageDisplayName)"
-
-# Make sure the switch exists and it allows Internet access if updates
-# are to be installed
-$switchName = 'Intel(R) PRO/1000 MT Network Connection - Virtual Switch'
+Write-Host "Generating $($image.ImageDisplayName)"
 
 # The path were you want to create the config fille
 $unixTimeStamp = Get-Date -UFormat %s -Millisecond 0
