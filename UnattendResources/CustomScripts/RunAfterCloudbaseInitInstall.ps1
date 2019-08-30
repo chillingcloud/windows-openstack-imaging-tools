@@ -1,13 +1,6 @@
-$configDirectory = "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf"
-$configFilePath = "$configDirectory\cloudbase-init.conf"
-$configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
-
-Set-AdministratorUsername $configFilePath
-Set-AdministratorUsername $configUnattendFilePath
-
 function Set-AdministratorUsername {
     param (
-        ConfigPath
+        [string]$configPath = $null
     )
     if(Test-Path $configPath) {
         $config = Get-Content $configPath
@@ -15,3 +8,10 @@ function Set-AdministratorUsername {
         echo $config > $configPath
     }
 }
+
+$configDirectory = "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf"
+$configFilePath = "$configDirectory\cloudbase-init.conf"
+$configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
+
+Set-AdministratorUsername $configFilePath
+Set-AdministratorUsername $configUnattendFilePath
