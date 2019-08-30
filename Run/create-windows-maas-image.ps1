@@ -14,7 +14,7 @@
 
 Param(
     # The Windows image file path that will be generated
-    [string]$wimFilePath="D:\Sources\install.wim", 
+    [string]$wimFilePath = "D:\Sources\install.wim", 
 
     # The wim file path is the installation image on the Windows ISO
     [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz",

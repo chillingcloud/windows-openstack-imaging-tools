@@ -1,8 +1,8 @@
 $sourceLocalScriptPath = 'C:\UnattendResources\LocalScripts'
 $targetLocalScriptPath = 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts'
 
-if(!(Test-Path $localScriptPath)) {
-    mkdir -Path $localScriptPath
+if(!(Test-Path $targetLocalScriptPath)) {
+    mkdir -Path $taegetLocalScriptPath
 }
 
 # Inject LocalScripts
