@@ -37,7 +37,7 @@ function Get-AvailableConfigOptions {
                            and the generated image should be in raw.tgz format.
                            For KVM, in addition to cloudbase-init, the VirtIO drivers are installed
                            and the generated image should be in qcow2 format."},
-        @{"Name" = "disk_layout"; "DefaultValue" = "BIOS";
+        @{"Name" = "disk_layout"; "DefaultValue" = "UEFI";
           "Description" = "This parameter can be set to either BIOS or UEFI."},
         @{"Name" = "product_key";
           "Description" = "The product key for the selected OS."},
