@@ -5,7 +5,7 @@ function Set-AdministratorUsername {
     if(Test-Path $configPath) {
         $config = Get-Content $configPath
         $config = %{$_ -replace "username=Admin", "username=Administrator"}
-        echo $config > $configPath
+        Write-Output $config > $configPath
     }
 }
 
