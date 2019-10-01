@@ -13,5 +13,5 @@ $configDirectory = "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf"
 $configFilePath = "$configDirectory\cloudbase-init.conf"
 $configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
 
-Set-AdministratorUsername $configFilePath
-Set-AdministratorUsername $configUnattendFilePath
+//Set-AdministratorUsername $configFilePath
+//Set-AdministratorUsername $configUnattendFilePath
