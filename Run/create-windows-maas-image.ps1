@@ -14,14 +14,14 @@
 
 Param(
     # The Windows image file path that will be generated
-    [string]$wimFilePath = "D:\Sources\install.wim", 
+    [string]$WimFilePath = "D:\Sources\install.wim", 
 
     # The wim file path is the installation image on the Windows ISO
-    [string]$windowsImagePath = "C:\images\my-windows-image.raw.tgz",
+    [string]$WindowsImagePath = "C:\images\my-windows-image.raw.tgz",
 
     # Virtual Switch on Hyper-V
     # Make sure the switch exists and it allows Internet access if updates are to be installed
-    [string]$switchName = $null
+    [string]$SwitchName = $null
 )
 
 $ErrorActionPreference = "Stop"
@@ -53,10 +53,11 @@ try {
 $virtIOISOPath = "C:\images\virtio.iso"
 # Note(avladu): Do not use stable 0.1.126 version because of this bug https://github.com/crobinso/virtio-win-pkg-scripts/issues/10
 # Note (atira): Here https://fedorapeople.org/groups/virt/virtio-win/CHANGELOG you can see the changelog for the VirtIO drivers
-$virtIODownloadLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.141-1/virtio-win-0.1.141.iso"
+$virtIODownloadLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
 
 # Download the VirtIO drivers ISO from Fedora, If the ISO does not exists.
 if(!(Test-Path $virtIOISOPath)) {
+    Write-Host "Downloading VirtIO"
     (New-Object System.Net.WebClient).DownloadFile($virtIODownloadLink, $virtIOISOPath)
 }
 
@@ -93,7 +94,7 @@ else {
     $image = $images[1]
 }
 
-Write-Host "Generating $($image.ImageDisplayName)"
+Write-Host "Creating an image of $($image.ImageDisplayName)"
 
 # The path were you want to create the config fille
 $unixTimeStamp = Get-Date -UFormat %s -Millisecond 0
@@ -108,8 +109,8 @@ Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_type" -Val
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "install_maas_hooks" -Value "True"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "enable_administrator_account" -Value "False"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "disk_layout" -Value "BIOS"
-Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 4
-Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (8GB)
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 2
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (3GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disk_size" -Value (30GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "external_switch" -Value $switchName
 Set-IniFileValue -Path $configFilePath -Section "drivers" -Key "virtio_iso_path" -Value $virtIOISOPath
