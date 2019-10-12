@@ -27,7 +27,7 @@ cfg.CONF.register_opts(opts, group=grp)
 # Process command line arguments.  The arguments tell CONF where to
 # find your config file, which it loads and parses to populate itself.
 cfg.CONF([
-    '--config-file', '../conf/cloudbase-init.conf'
+    '--config-file', '../conf/cloudbase-init-unattend.conf'
 ])
 
 # Now you can access the values from the config file as
