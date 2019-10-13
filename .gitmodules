@@ -1,6 +1,6 @@
 [submodule "UnattendResources/windows-curtin-hooks"]
 	path = UnattendResources/windows-curtin-hooks
-	url = https://github.com/cloudbase/windows-curtin-hooks
+	url = https://github.com/chillingcloud/windows-curtin-hooks
 	branch = master
 [submodule "UnattendResources/WindowsUpdates"]
 	path = UnattendResources/WindowsUpdates
