@@ -107,7 +107,7 @@ Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_name" -Val
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_path" -Value $windowsImagePath
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_type" -Value "MAAS"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "install_maas_hooks" -Value "True"
-Set-IniFileValue -Path $configFilePath -Section "Default" -Key "enable_administrator_account" -Value "False"
+Set-IniFileValue -Path $configFilePath -Section "Default" -Key "enable_administrator_account" -Value "True"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "disk_layout" -Value "BIOS"
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 2
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (3GB)
