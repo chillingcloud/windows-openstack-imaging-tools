@@ -11,7 +11,7 @@ function Set-AdministratorUsername {
 
 function Set-CloudInitPlugins {
     param(
-        [string]$configPath = null
+        [string]$configPath = $null
     )
     if(Test-Path $configPath) {
         $config = Get-Content $configPath
@@ -22,7 +22,7 @@ function Set-CloudInitPlugins {
 
 function Set-CloudInitUnattendPlugins {
     param(
-        [string]$configPath = null
+        [string]$configPath = $null
     )
     if(Test-Path $configPath) {
         $config = Get-Content $configPath
