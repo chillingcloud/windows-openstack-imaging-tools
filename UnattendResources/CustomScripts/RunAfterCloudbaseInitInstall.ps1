@@ -34,9 +34,12 @@ $configDirectory = "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf"
 $configFilePath = "$configDirectory\cloudbase-init.conf"
 $configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
 
+Write-Host -NoNewLine "[AfterCloudbaseInitInstall] Once you done any manual configuration or don't want to config, Press any key to continue...";
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+
 #Set-AdministratorUsername $configFilePath
 #Set-AdministratorUsername $configUnattendFilePath
 
 # Disable Cloud-Init Plugins
-Set-CloudInitPlugins $configFilePath
-Set-CloudInitUnattendPlugins $configUnattendFilePath
+#Set-CloudInitPlugins $configFilePath
+#Set-CloudInitUnattendPlugins $configUnattendFilePath
