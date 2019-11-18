@@ -35,7 +35,9 @@ $configFilePath = "$configDirectory\cloudbase-init.conf"
 $configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
 
 Write-Host -NoNewLine "[AfterCloudbaseInitInstall] Once you done any manual configuration or don't want to config, Press any key to continue...";
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+$key = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+
+Write-Host "Entering Sysprep phase..."
 
 #Set-AdministratorUsername $configFilePath
 #Set-AdministratorUsername $configUnattendFilePath
