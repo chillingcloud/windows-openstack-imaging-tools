@@ -5,5 +5,8 @@ if(!(Test-Path $targetLocalScriptPath)) {
     mkdir -Path $taegetLocalScriptPath
 }
 
-# Inject LocalScripts
-Copy-Item -Recurse -Force $sourceLocalScriptPath 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\'
+if((Test-Path $sourceLocalScriptPath)) {
+    # Inject LocalScripts
+    Copy-Item -Recurse -Force $sourceLocalScriptPath 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\'
+}
+
