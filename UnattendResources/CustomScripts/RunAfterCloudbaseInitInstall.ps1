@@ -1,38 +1,10 @@
-function Set-AdministratorUsername {
-    param (
-        [string]$configPath = $null
-    )
-    if(Test-Path $configPath) {
-        $config = Get-Content $configPath
-        $config = %{$_ -replace "username=Admin", "username=Administrator"}
-        Write-Output $config > $configPath
-    }
-}
+$sourceConfigDir = 'C:\UnattendResources\Config'
+$targetConfigDir = 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf'
 
-function Set-CloudInitPlugins {
-    param(
-        [string]$configPath = $null
-    )
-    if(Test-Path $configPath) {
-        $config = Get-Content $configPath
-        $config = "$config`r`nplugins=cloudbaseinit.plugins.windows.userdata.UserDataPlugin,cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin"
-        Write-Output $config > $configPath
-    }
+if((Test-Path $sourceConfigDir)) {
+    # Inject Cloudbase-Init Config
+    Copy-Item -Recurse -Force $sourceConfigDir 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\'
 }
-
-function Set-CloudInitUnattendPlugins {
-    param(
-        [string]$configPath = $null
-    )
-    if(Test-Path $configPath) {
-        $config = Get-Content $configPath
-        $config = {$_ -replace "plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin", "plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin"}
-    }
-}
-
-$configDirectory = "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf"
-$configFilePath = "$configDirectory\cloudbase-init.conf"
-$configUnattendFilePath = "$configDirectory\cloudbase-init-unattend.conf"
 
 Write-Host -NoNewLine "[AfterCloudbaseInitInstall] Once you done any manual configuration or don't want to config, Press any key to continue...";
 $key = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
